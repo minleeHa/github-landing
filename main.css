@@ -1,0 +1,260 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+header {
+    /* background-color: #040d22; hero컨텐츠섹션으로 들어갔으므로 컬러는 불필요*/
+    position: relative; /*이미지보다 위에 쌓여 출력될수있게 배치의개념과 무관하게 position값을 추가함*/
+}
+
+header .forms input.form-control {
+    color: white;
+    background-color: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,.3);
+}
+
+header .forms input.form-control::placeholder { /*:->가상클래스선택자/ ::->가상요소선택자*/
+    color: rgba(255,255,255,.6);
+}
+
+/* offcanvas */
+header [data-bs-toggle="offcanvas"] { /* []->속성선택자 */
+    display: none; /* display(화면에 보이는설정을 none 즉, 안보이게 설정) */
+}
+
+header .offcanvas .list-group-item{
+    padding: 16px;
+}
+
+header .offcanvas .list-group-item a {
+    color: black;
+    text-decoration: none;
+}
+
+header .offcanvas .list-group-item a:hover {
+    text-decoration: underline;
+}
+@media (max-width:992px) { /* if문이라고 생각하면됨, 미디어 쿼리는 CSS에서 어떤 스타일을 선택적으로 적용하고 싶을 때 사용 */
+    header .logo {
+        flex-grow: 1; /* flex-grow(증가너비)의 기본값은 0 */
+    } /* 로고가 영역을 많이 차지하게함으로써 sign up버튼과 햄버거 버튼이 최대한 오른쪽으로 붙게된다 */
+
+    header .nav, /* 화면이 줄어들면 상단의 메뉴들이 사라진다 */
+    header .btn-link,
+    header .forms input.form-control {
+        display: none;
+    } /* 다중선택자:여러개의 선택자에 하나의 동일한 효과를 적용시킨다(선택자 이름마다 ,를 써야함) */
+
+    header [data-bs-toggle="offcanvas"] {
+        display: block; /* 화면에 보인다 */
+    }
+}
+
+/* HERO Section */
+section.hero {
+    background-color: #040d22;
+    position: relative; /*이미지보다 위에 쌓여 출력될수있게 배치의개념과 무관하게 position값을 추가함*/
+    overflow: hidden;
+}
+
+section.hero .container{
+    padding-top: 160px;
+    padding-bottom: 160px;
+    position: relative; 
+}
+
+section.hero .headline h1{
+    font-size: 68px;
+    font-weight: 700;
+    letter-spacing: -2px;
+}
+
+section.hero .headline p{
+    font-size: 26px;
+}
+
+section.hero img.globe {
+    width: 900px;
+    position: absolute;
+    top: -5%;
+    left: 46%;
+}
+section.hero img.glow {
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+section.hero .curve {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+
+/* YOUTUBE Section */
+
+section.youtube {
+
+}
+
+section.youtube .container {
+    padding-top: 90px;
+    padding-bottom: 70px;
+    position: relative;
+}
+
+section.youtube img.astronaut {
+    width: 480px; /* 가로넓이 */
+    position: absolute;
+    top: -420px;
+    right: 0;
+}
+
+section.youtube .ratio {
+    border-radius: 10px; /*모서리 둥글게*/
+    overflow: hidden; /*ifram인 영상부분이 넘쳐 둥글게 깍인 부분이 가려지기때문에 넘치는 부분을 hidden으로 숨긴다*/
+    background-color: black;
+}
+
+@media (max-width: 768px) {
+    section.youtube img.astronaut {
+        display: none;
+    }
+}
+
+section.features {
+
+}
+
+section.features .container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+section.features .card {
+    color: #627597;
+    border: none; /* 테두리선 사용안함 */
+}
+
+section.features .card img {
+    /* padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 60px;
+    padding-right: 60px; */
+    padding: 30px 60px; /* padding(내부여백의미): 30px(위아래값의미) 60px(요소의 좌우값을의미) -> 한번에 작성가능*/
+}
+
+@media (max-width:579px) {
+    section.features .card img {
+        padding: 20px 30px;
+    }
+}
+
+section.map {
+
+}
+
+section.map .container {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    color: #627597;
+}
+
+section.map h1 {
+    font-size: 44px;
+    font-weight: 700;
+}
+
+section.map p {
+    font-size: 24px;
+}
+
+#map { /* id는 이름이 중복불가능이니 클래스호출처럼 조상이나 부모클래스이름을 따로 호출하지않아도 된다 */
+    height: 500px;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 10px;
+    z-index: 1; /* z축을 설정한다-> 지도를 다른요소들보다 더 튀어나온게 한다 */
+    
+}
+
+footer {
+    background-color: #040d22;
+    position: relative;
+    margin-top: 20%;
+}
+
+footer .curve {
+    transform: scale(1,-1); /* 수직반전 */
+    position: absolute;
+    top: -1px;
+    left: 0;
+}
+
+footer .container {
+
+}
+
+footer img.illustration {
+    width: 100%; /* 컨테이너박스크기의 100%이다(이미지 사이즈는 줄어드는것이라고 보면됨) */
+    margin-top: -33%;
+    margin-bottom: 50px;
+    transform: scale(-1,1); /* 좌우반전 */
+}
+
+footer img.logo {
+    opacity: .4;
+}
+
+footer h5 {
+    font-weight: 700px;
+    color: rgba(255, 255, 255, .4);
+    margin-bottom: 20px;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: rgba(255, 255, 255, .4);
+    text-decoration: none; /* a링크 글자에 나타나는 밑줄 제거 */
+    transition: .3s;
+}
+
+footer ul li a:hover {
+    color: white;
+}
+
+footer .site-links {
+    margin: 0; /* 먼저 위아래좌우 여백을 0으로 초기화 */
+    margin-top: 60px;
+    padding: 20px;
+    background-color: rgba(255,255,255,.05);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+footer .site-links li {
+    color: rgba(255,255,255,.4);
+    margin: 0;
+    margin-right: 20px;
+}
+
+footer .site-links li:last-child {
+    margin-right: 0;
+} /* 가장마지막요소의 우측여백은 사용하지않기위해 초기화함 */
+
+@media (max-width: 992px) {
+    footer {
+        text-align: center;
+    }
+    footer img.logo {
+        margin-bottom: 50px;
+    }
+}
+
